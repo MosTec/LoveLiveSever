@@ -9,9 +9,9 @@ require 'vendor/autoload.php';
  */
 
 // api_key 获取方式：登录 [Dashboard](https://dashboard.pingxx.com)->点击管理平台右上角公司名称->开发信息-> Secret Key
-$api_key = 'sk_test_ibbTe5jLGCi5rzfH4OqPW9KC';
+$api_key = 'sk_test_9uDyX5T8mzr1aPCuXPbnvv5K';
 // app_id 获取方式：登录 [Dashboard](https://dashboard.pingxx.com)->点击你创建的应用->应用首页->应用 ID(App ID)
-$app_id = 'app_1Gqj58ynP0mHeX1q';
+$app_id = 'app_4SCuf5L4CqzHWHan';
 
 // 此处为 Content-Type 是 application/json 时获取 POST 参数的示例
 $input_data = json_decode(file_get_contents('php://input'), true);
@@ -32,7 +32,7 @@ $client_ip = $input_data['client_ip'];
  */
 
 // 设置私钥内容
-\Pingpp\Pingpp::setPrivateKeyPath(__DIR__ . '/your_rsa_private_key.pem');
+// \Pingpp\Pingpp::setPrivateKeyPath(__DIR__ . '/your_rsa_private_key.pem');
 
 /**
  * $extra 在使用某些渠道的时候，需要填入相应的参数，其它渠道则是 array()。
