@@ -3,11 +3,11 @@ require 'vendor/autoload.php';
 
 use Qiniu\Auth;
 
-$accessKey = 'Access_Key';
-$secretKey = 'Secret_Key';
+$accessKey = '15N9SEyTMq02s5Pc6aiGw88CVt0hHiWyJwni-h8w';
+$secretKey = '3N16T8zKi4vwlvFcYrt4UkpgL4ZdIsQcbA_w5bsV';
 $auth = new Auth($accessKey, $secretKey);
 
-$bucket = 'Bucket_Name';
+$bucket = 'll-video-ing';
 
 $pfop = "avthumb/m3u8";
 
