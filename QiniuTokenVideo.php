@@ -15,7 +15,7 @@ $pfop = "avthumb/m3u8";
 $notifyUrl = 'http://notify.fake.com';
 
 //独立的转码队列：https://portal.qiniu.com/mps/pipeline
-$pipeline = 'pipeline_name';
+$pipeline = 'll-video-ing-task';
 
 $policy = array(
     'persistentOps' => $pfop,
