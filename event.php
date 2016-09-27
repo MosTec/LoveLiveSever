@@ -337,7 +337,7 @@ html body{
 
 .eventCell .eventPriceBorder{
 	float: right;
-	margin-top: 106px;
+	margin-top: 86px;
 	margin-right: 0px;
 	padding-left: 10px;
 	padding-right: 10px;
