@@ -127,17 +127,19 @@ for ($i=0; $i < count($hotEvents); $i++) {
 	$subEvent_tag = $subEventDic['tag'];
 	$subEvent_id = $subEventDic['objectId'];
 
-	echo "<a href=\"http://mos-tec-5lovelive.daoapp.io/event.php?eventId=$subEvent_id\"><div class=\"event\">
+	echo "<a href=\"http://mos-tec-5lovelive.daoapp.io/event.php?eventId=$subEvent_id\"><div class=\"eventCell\">
 		<img class=\"eventCover\" src=$subEvent_cover>
-		<span class=\"eventTitle\">$subEvent_title</span> 
-		<span class=\"eventTime\">$subEvent_time</span> 
-		<span class=\"eventLocation\">$subEvent_location</span> 
+		<div class=\"info\">
+			<span class=\"eventTitle\">$subEvent_title</span> <br></br>
+			<span class=\"eventTime\">时间：$subEvent_time</span> <br></br>
+			<span class=\"eventLocation\">地点：$subEvent_location</span> <br></br>
+			<div class=\"tagBorder\">
+				<span class=\"eventTag\">$subEvent_tag</span> 
+			</div> <br></br>
+		</div>
 		<div class=\"eventPriceBorder\">
-		<span class=\"eventPrice\">$subEvent_price</span> 
-		</div>
-		<div class=\"tagBorder\">
-		<span class=\"eventTag\">$subEvent_tag</span> 
-		</div>
+				<span class=\"eventPrice\">$subEvent_price</span> 
+			</div>
 		<div class=\"eventLine\"></div>
 	</div></a>";
 }
@@ -167,14 +169,14 @@ html{
 	 padding:0;
 }
 html body{
-	 width:100%;
-	 height:100%;
-	 font-family:'微软雅黑',sans-serif;font-size:15px;
-	 color:#5f5f5f;
-	 line-height:100%;margin:0;
-	 padding:0;
-	 -webkit-text-size-adjust:none;
-	 -o-text-size-adjust:none;
+    width: 100%;
+    height: 100%;
+    font-family: '微软雅黑',sans-serif;
+    font-size: 15px;
+    color: #5f5f5f;
+    line-height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .imgArea{
@@ -190,7 +192,6 @@ html body{
 .eventTitle{
 	float: left;
     width: 100%;
-    height: 25px;
     text-align: center;
     font-size: 18px;
     color: #3C3C3C;
@@ -252,7 +253,6 @@ html body{
  	margin-left: 15px;
  	margin-right: 15px;
  	margin-bottom: 15px;
- 	position: relative;
 }
 
 .eventDetail .eventInfo{
@@ -263,19 +263,16 @@ html body{
 }
 
 .eventDetail .eventInfo .eventInfoIco{
-	margin-left: 0px;
-	margin-top: 0px;
+	float: left;
 	width: 20px;
 	height:20px;
 }
 
 .eventDetail .eventInfo .eventInfoText{
-	position: absolute;
-	margin-left: 5px;
-	margin-top: 2.5px;
+	float: left;
 	margin-left: 15px;
 	font-size: 14px;
-	width: 500px;
+	line-height: 20px;
 }
 
 .eventDetail .eventInfoHint{
@@ -286,65 +283,72 @@ html body{
 	line-height: 15px;
 }
 
-.event{
-	float:left; 
+.eventCell{
+	float: left;
 	width: 100%;
-	height: 146px;
-	margin-top: 0px;
+	height: 150px;
+	margin-top: 15px;
 }
 
-.event .eventCover{
+.eventCell .eventCover{
+	float: left;
+	margin-left: 15px;
 	width: 88px;
 	height: 116px;
-	margin-top: 15px;
-	margin-left: 15px;
-	border-radius: 4;
-	overflow: hidden; 
 }
 
-.event .eventTitle{
+.eventCell .info{
 	position: absolute;
+	margin-top: 0px;
+	margin-left: 115px;
+	float: right;
+	height: 116px;
+}
+
+.eventCell .info .eventTitle{
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
 	text-align: left;
-	margin-left: 15px;
-	margin-top: 15px;
 	font-size: 12px;
 	font-weight: bold;
-	line-height: 34px;
+	line-height: 20px;
 }
 
-.event .eventTime{
-	position: absolute;
+.eventCell .info .eventTime{
+	float: left;
 	text-align: left;
-	margin-left: 15px;
-	margin-top: 57px;
+	margin-left: 0px;
+	margin-top: 0px;
 	font-size: 12px;
 	color: #7B7B7B;
-	line-height: 16px;
+	line-height: 20px;
 }
 
-.event .eventLocation{
-	position: absolute;
+.eventCell .info .eventLocation{
+	float: left;
 	text-align: left;
-	margin-left: 15px;
-	margin-top: 72px;
+	margin-left: 0px;
+	margin-top: 0px;
 	font-size: 12px;
 	color: #7B7B7B;
-	line-height: 34px;
+	line-height: 20px;
 }
 
-.event .eventPriceBorder{
+.eventCell .eventPriceBorder{
 	float: right;
 	margin-top: 106px;
-	margin-right: -10px;
+	margin-right: 0px;
 	padding-left: 10px;
-	padding-right: 20px;
+	padding-right: 10px;
 	height: 25px;
 	background-color: black;
-	border-radius: 12.5px;
+	border-bottom-left-radius: 12.5px;
+	border-top-left-radius: 12.5px;
 	border-width: 1px;
 	border-color: black;
 }
-.event .eventPriceBorder .eventPrice{
+.eventCell .eventPriceBorder .eventPrice{
 	float: right;
 	text-align: right;
 	color: white;
@@ -352,11 +356,10 @@ html body{
 	line-height: 25px;
 }
 
-.event .tagBorder{
+.eventCell .info .tagBorder{
 	float: left;
-	position: absolute;
-	margin-left: 115px;
-	margin-top: -20px;
+	margin-left: 0px;
+	margin-top: 0px;
 	padding-left: 5px;
 	padding-right: 5px;
 	border-width: 2px;
@@ -365,7 +368,7 @@ html body{
 	background-color: black;
 	height: 15px;
 }
-.event .tagBorder .eventTag{
+.eventCell .info .tagBorder .eventTag{
 	float: left;
 	text-align: left;
 	color: white;
@@ -373,14 +376,13 @@ html body{
 	line-height: 15px;
 }
 
-.event .eventLine{
-	position: absolute;
-	margin-top: 15px;
+.eventCell .eventLine{
+	margin-top: 140px;
 	margin-left: 15px;
-	width: 100%;
 	height: 1px;
 	background-color: #F6F6F6;
 }
+
 
 /*主界面 底部菜单 start*/
 .node_footer_bar {position:fixed;height: 44px;width: 100%;background: #3F3F3F;opacity: 0.95;bottom: 0px;}
