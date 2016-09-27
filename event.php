@@ -76,15 +76,15 @@ echo "<div class=\"seperator\"></div>";
 
 echo "<div class = \"eventDetail\">
 	<div class = \"eventInfo\">
-		<img class=\"eventInfoIco\" src=\"../LoveLiveSever/images/pro_time@3x.png\">
+		<img class=\"eventInfoIco\" src=\"../images/pro_time@3x.png\">
 		<span class=\"eventInfoText\">$eventTime</span>
 	</div>
 	<div class = \"eventInfo\">
-		<img class=\"eventInfoIco\" src=\"../LoveLiveSever/images/pro_address@3x.png\">
+		<img class=\"eventInfoIco\" src=\"../images/pro_address@3x.png\">
 		<span class=\"eventInfoText\">$eventLocation</span>
 	</div>
 	<div class = \"eventInfo\">
-		<img class=\"eventInfoIco\" src=\"../LoveLiveSever/images/pro_price@3x.png\">
+		<img class=\"eventInfoIco\" src=\"../images/pro_price@3x.png\">
 		<span class=\"eventInfoText\">$eventPrice</span>
 	</div>
 	<span class=\"eventInfoHint\">温馨提示：演出票劵为特殊商品，一经卖出赎不退换。</span>
@@ -127,7 +127,7 @@ for ($i=0; $i < count($hotEvents); $i++) {
 	$subEvent_tag = $subEventDic['tag'];
 	$subEvent_id = $subEventDic['objectId'];
 
-	echo "<a href=\"http://localhost/LoveliveSever/event.php?eventId=$subEvent_id\"><div class=\"event\">
+	echo "<a href=\"http://mos-tec-5lovelive.daoapp.io/event.php?eventId=$subEvent_id\"><div class=\"event\">
 		<img class=\"eventCover\" src=$subEvent_cover>
 		<span class=\"eventTitle\">$subEvent_title</span> 
 		<span class=\"eventTime\">$subEvent_time</span> 
