@@ -146,7 +146,7 @@ for ($i=0; $i < count($hotEvents); $i++) {
 
 echo "<a href=\"lovelive://event_$subEvent_id\">
 		<div class=\"node_footer_bar\">		
-         <img src=\"../LoveLiveSever/images/bottom.png\" />
+         <img src=\"../images/bottom.png\" />
          <div class=\"open_button\" >打开</div>
       </div></a>";
 
@@ -338,7 +338,6 @@ html body{
 	margin-right: -10px;
 	padding-left: 10px;
 	padding-right: 20px;
-	padding-top: 5px;
 	height: 25px;
 	background-color: black;
 	border-radius: 12.5px;
@@ -350,7 +349,7 @@ html body{
 	text-align: right;
 	color: white;
 	font-size: 15px;
-	line-height: 15px;
+	line-height: 25px;
 }
 
 .event .tagBorder{
@@ -360,7 +359,6 @@ html body{
 	margin-top: -20px;
 	padding-left: 5px;
 	padding-right: 5px;
-	padding-top: 5px;
 	border-width: 2px;
 	border-color: #7B7B7B;
 	border-radius: 4px;
@@ -372,7 +370,7 @@ html body{
 	text-align: left;
 	color: white;
 	font-size: 10px;
-	line-height: 10px;
+	line-height: 15px;
 }
 
 .event .eventLine{
