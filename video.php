@@ -51,33 +51,12 @@ echo "<body>";
 
 // videoArea
 
-echo "<video id=\"video_player\" class=\"video-js vjs-default-skin vjs-big-play-centered\" controls preload=\"auto\" width=\"640\" height=\"640\"
+echo "<video id=\"video_player\" class=\"video-js vjs-default-skin vjs-big-play-centered\" controls preload=\"auto\" width=\"100%\" height=\"100%\"
       poster=\"$coverUrl\"
       data-setup=\"{}\">
 
     <source src=\"$videoUrl\" type='video/mp4' />
-</video>
-
-<script>
-// 获取窗口宽度
-if (window.innerWidth)
-winWidth = window.innerWidth;
-else if ((document.body) && (document.body.clientWidth))
-winWidth = document.body.clientWidth;
-// 获取窗口高度
-if (window.innerHeight)
-winHeight = window.innerHeight;
-else if ((document.body) && (document.body.clientHeight))
-winHeight = document.body.clientHeight;
-// 通过深入 Document 内部对 body 进行检测，获取窗口大小
-if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
-{
-winHeight = document.documentElement.clientHeight;
-winWidth = document.documentElement.clientWidth;
-}
-     document.getElementById(\"video_player\").width=winWidth;       
-     document.getElementById(\"video_player\").height=winWidth; 
-</script>";
+</video>";
 
 // userinfoArea
 
