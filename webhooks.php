@@ -7,7 +7,7 @@
  * 该代码仅供学习和研究 Ping++ SDK 使用，仅供参考。
  */
 
-require dirname(__FILE__) . '/../init.php';
+require 'vendor/autoload.php';
 
 /* *
  * 验证 webhooks 签名方法：
@@ -52,6 +52,7 @@ $event = json_decode($raw_data, true);
 if ($event['type'] == 'charge.succeeded') {
     $charge = $event['data']['object'];
     // ...
+    echo "success";
     http_response_code(200); // PHP 5.4 or greater
 } elseif ($event['type'] == 'refund.succeeded') {
     $refund = $event['data']['object'];
