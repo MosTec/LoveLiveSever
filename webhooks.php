@@ -51,8 +51,39 @@ if ($result === 1) {
 $event = json_decode($raw_data, true);
 if ($event['type'] == 'charge.succeeded') {
     $charge = $event['data']['object'];
+    $orderId = $event['data']['object']['order_no'];
+
     // ...
-    echo "success";
+    // updateOrderInfo
+
+    $url = "https://api.leancloud.cn/1.1/classes/order/".$orderId;
+
+    $avosId = "m3pwKv6vfV9BqdId6oV9Jd2d-gzGzoHsz";
+    $avosKey = "vKMRTFHtdIFckoiE6PxiMYEp";
+    $avosMaster = "cpwHOPgah8BeYR0T2BIOVHXh,master";
+    //请求头内容
+    $headers = array(
+        'X-LC-Id: '.$avosId,
+        'X-LC-Key: '.$avosKey,
+    );
+
+    //使用curl发送
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT"); //设置请求方式
+
+    $parameters = array('paymentStatus' => true);
+
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($parameters));//设置提交的字符串
+
+    $result = curl_exec($ch);
+    $output_arr = json_decode($result,true);
+    curl_close($ch);
+
+    echo $result;
     http_response_code(200); // PHP 5.4 or greater
 } elseif ($event['type'] == 'refund.succeeded') {
     $refund = $event['data']['object'];
