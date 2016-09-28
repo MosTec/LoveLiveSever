@@ -149,7 +149,7 @@ for ($i=0; $i < count($hotEvents); $i++) {
 echo "<a href=\"lovelive://event_$subEvent_id\">
 		<div class=\"node_footer_bar\">		
          <img src=\"../images/bottom.png\" />
-         <div class=\"open_button\" >打开</div>
+         <div class=\"open_button\" >购票</div>
       </div></a>";
 
 // HTML bodyEnding
