@@ -35,18 +35,18 @@ $signature = isset($headers['X-Pingplusplus-Signature']) ? $headers['X-Pingplusp
 // Ping++ 公钥，获取路径：登录 [Dashboard](https://dashboard.pingxx.com)->点击管理平台右上角公司名称->开发信息-> Ping++ 公钥
 $pub_key_path = __DIR__ . "/pingpp_rsa_public_key.pem";
 
-$result = verify_signature($raw_data, $signature, $pub_key_path);
-if ($result === 1) {
-    // 验证通过
-} elseif ($result === 0) {
-    http_response_code(400);
-    echo 'verification failed';
-    exit;
-} else {
-    http_response_code(400);
-    echo 'verification error';
-    exit;
-}
+// $result = verify_signature($raw_data, $signature, $pub_key_path);
+// if ($result === 1) {
+//     // 验证通过
+// } elseif ($result === 0) {
+//     http_response_code(400);
+//     echo 'verification failed';
+//     exit;
+// } else {
+//     http_response_code(400);
+//     echo 'verification error';
+//     exit;
+// }
 
 $event = json_decode($raw_data, true);
 if ($event['type'] == 'charge.succeeded') {
@@ -65,25 +65,23 @@ if ($event['type'] == 'charge.succeeded') {
     $headers = array(
         'X-LC-Id: '.$avosId,
         'X-LC-Key: '.$avosKey,
+        "Content-type:application/json"
     );
 
-    //使用curl发送
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $parameters = json_encode(array('paymentStatus' => 1));
+
+    $ch = curl_init(); 
+    curl_setopt($ch, CURLOPT_URL, $url); //定义请求地址
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT"); //定义请求类型，当然那个提交类型那一句就不需要了
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);//定义header
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT"); //设置请求方式
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $parameters); //定义提交的数据
+    $res = curl_exec($ch);
+    curl_close($ch);//关闭
 
-    $parameters = array('paymentStatus' => true);
+    echo $res;
 
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($parameters));//设置提交的字符串
-
-    $result = curl_exec($ch);
-    $output_arr = json_decode($result,true);
-    curl_close($ch);
-
-    echo $result;
     http_response_code(200); // PHP 5.4 or greater
 } elseif ($event['type'] == 'refund.succeeded') {
     $refund = $event['data']['object'];
