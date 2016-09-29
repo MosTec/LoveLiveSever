@@ -35,18 +35,18 @@ $signature = isset($headers['X-Pingplusplus-Signature']) ? $headers['X-Pingplusp
 // Ping++ 公钥，获取路径：登录 [Dashboard](https://dashboard.pingxx.com)->点击管理平台右上角公司名称->开发信息-> Ping++ 公钥
 $pub_key_path = __DIR__ . "/pingpp_rsa_public_key.pem";
 
-// $result = verify_signature($raw_data, $signature, $pub_key_path);
-// if ($result === 1) {
-//     // 验证通过
-// } elseif ($result === 0) {
-//     http_response_code(400);
-//     echo 'verification failed';
-//     exit;
-// } else {
-//     http_response_code(400);
-//     echo 'verification error';
-//     exit;
-// }
+$result = verify_signature($raw_data, $signature, $pub_key_path);
+if ($result === 1) {
+    // 验证通过
+} elseif ($result === 0) {
+    http_response_code(400);
+    echo 'verification failed';
+    exit;
+} else {
+    http_response_code(400);
+    echo 'verification error';
+    exit;
+}
 
 $event = json_decode($raw_data, true);
 if ($event['type'] == 'charge.succeeded') {
