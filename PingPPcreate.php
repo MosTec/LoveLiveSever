@@ -9,7 +9,7 @@ require 'vendor/autoload.php';
  */
 
 // api_key 获取方式：登录 [Dashboard](https://dashboard.pingxx.com)->点击管理平台右上角公司名称->开发信息-> Secret Key
-$api_key = 'sk_test_9uDyX5T8mzr1aPCuXPbnvv5K';
+$api_key = 'sk_live_aHOOyDzv1y9KGq9iPOnTiT0C';
 // app_id 获取方式：登录 [Dashboard](https://dashboard.pingxx.com)->点击你创建的应用->应用首页->应用 ID(App ID)
 $app_id = 'app_4SCuf5L4CqzHWHan';
 
