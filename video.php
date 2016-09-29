@@ -229,7 +229,8 @@ html body{
 .userArea .infoArea .userNameArea{
 	float: left;
 	line-height: 20px;
-	font-size: 18px;
+	font-size: 15px;
+	font-weight: bold;
 	text-align: left;
 
 }
