@@ -28,7 +28,8 @@ $videoUrl = $output_arr['contentVideoURL'];
 $coverUrl = $output_arr['contentVideoCover'];
 $userAvatar = $output_arr['creator']['avatarUrl'];
 $userName = $output_arr['creator']['nickName'];
-$createdTime = $output_arr['createdAt'];
+$createdTime = strtotime($output_arr['createdAt']);
+$finalTime = gmdate('Y-m-d H:i:s',$createdTime + 3600 * 8);
 
 // HTML start
 
@@ -73,7 +74,7 @@ echo "<div class=\"userArea\">
 	</div>
 	<div class=\"infoArea\">
 	<span class=\"userNameArea\">$userName</span><br>
-	<span class=\"postTime\">$createdTime</span>
+	<span class=\"postTime\">$finalTime</span>
 	</div>
 </div>";
 
@@ -105,7 +106,7 @@ if (array_key_exists("event", $output_arr)) {
 	<div class=\"linkeventCover\">
 		<img class=\"linkeventCoverImage\" src=$linkEventCover>
 	</div>
-	<span class=\"linkeventName\">linkEvent</span>
+	<span class=\"linkeventName\">$linkEvent</span>
 </div>";
 }
 
