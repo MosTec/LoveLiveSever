@@ -166,7 +166,7 @@ for ($i=0; $i < count($hotEvents); $i++) {
 
 // bottomLink
 
-echo "<a href=\"lovelive://event_$subEvent_id\">
+echo "<a href=\"itms-apps://itunes.apple.com/app/id847334708\">
 		<div class=\"node_footer_bar\">		
          <img src=\"../images/bottom.png\" />
          <div class=\"open_button\" >打开</div>
