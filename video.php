@@ -59,12 +59,12 @@ echo "<video id=\"video_player\" class=\"video-js vjs-default-skin vjs-big-play-
     <source src=\"$videoUrl\" type='video/mp4' />
 </video>";
 
-echo "<script>
-winHeight = document.documentElement.clientHeight;
-winWidth = document.documentElement.clientWidth;
-     document.getElementById(\"video_player\").width=winWidth;       
-     document.getElementById(\"video_player\").height=winWidth; 
-</script>";
+// echo "<script>
+// winHeight = document.documentElement.clientHeight;
+// winWidth = document.documentElement.clientWidth;
+//      document.getElementById(\"video_player\").width=winWidth;       
+//      document.getElementById(\"video_player\").height=winWidth; 
+// </script>";
 
 // userinfoArea
 
