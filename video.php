@@ -59,13 +59,6 @@ echo "<video id=\"video_player\" class=\"video-js vjs-default-skin vjs-big-play-
     <source src=\"$videoUrl\" type='video/mp4' />
 </video>";
 
-// echo "<script>
-// winHeight = document.documentElement.clientHeight;
-// winWidth = document.documentElement.clientWidth;
-//      document.getElementById(\"video_player\").width=winWidth;       
-//      document.getElementById(\"video_player\").height=winWidth; 
-// </script>";
-
 // userinfoArea
 
 echo "<div class=\"userArea\">
@@ -175,7 +168,13 @@ echo "<a href=\"itms-apps://itunes.apple.com/app/id1139114813\">
 // HTML bodyEnding
 echo "</body>";
 
-// HTML ending
+echo "<script>
+winHeight = document.documentElement.clientHeight;
+winWidth = document.documentElement.clientWidth;
+     document.getElementById(\"video_player\").width=winWidth;       
+     document.getElementById(\"video_player\").height=winWidth; 
+</script>";
+HTML ending
 
 echo "</html>";
 ?>
