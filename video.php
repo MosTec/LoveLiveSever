@@ -52,7 +52,7 @@ echo "<body>";
 
 // videoArea
 
-echo "<video src=$videoUrl controls=\"controls\" autoplay=\"autoplay\" poster=$coverUrl>
+echo "<video src=$videoUrl controls=\"controls\" poster=$coverUrl>
 您的浏览器不支持 video 标签。
 </video>";
 
