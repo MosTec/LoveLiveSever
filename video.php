@@ -14,7 +14,7 @@ $headers = array(
     'X-LC-Key: '.$avosKey,
 );
 
-//使用curl发送
+//使用curl发送s
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -52,12 +52,10 @@ echo "<body>";
 
 // videoArea
 
-echo "<video id=\"video_player\" class=\"video-js vjs-default-skin vjs-big-play-centered\" controls preload=\"auto\" width=\"100%\" height=\"100%\"
-      poster=\"$coverUrl\"
-      data-setup=\"{}\">
-
-    <source src=\"$videoUrl\" type='video/mp4' />
+echo "<video src=$videoUrl controls=\"controls\">
+您的浏览器不支持 video 标签。
 </video>";
+
 
 // userinfoArea
 
@@ -159,7 +157,7 @@ for ($i=0; $i < count($hotEvents); $i++) {
 
 // bottomLink
 
-echo "<a href=\"itms-apps://itunes.apple.com/app/id1139114813\">
+echo "<a href=\"http://fir.im/beta100001\">
 		<div class=\"node_footer_bar\">		
          <img src=\"../images/bottom.png\" />
          <div class=\"open_button\" >打开</div>
@@ -174,10 +172,11 @@ winWidth = document.documentElement.clientWidth;
      document.getElementById(\"video_player\").width=winWidth;       
      document.getElementById(\"video_player\").height=winWidth; 
 </script>";
-HTML ending
+// HTML ending
 
 echo "</html>";
 ?>
+
 
 <style type="text/css">
 
@@ -443,6 +442,29 @@ html body{
 	margin-left: 15px;
 	height: 1px;
 	background-color: #F6F6F6;
+}
+
+video {
+    width: 100%;
+	height: auto;
+}
+
+iframe,
+embed,
+object {
+	width: 100%;
+	height: auto;
+}
+
+.container {
+	width: 100%;
+    margin:0px auto;
+}
+
+.vendor {
+	width: 100%;
+    background: green;
+    margin-bottom: 2em;
 }
 
 /*主界面 底部菜单 start*/

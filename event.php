@@ -146,7 +146,7 @@ for ($i=0; $i < count($hotEvents); $i++) {
 
 // bottomLink
 
-echo "<a href=\"itms-apps://itunes.apple.com/app/id1139114813\">
+echo "<a href=\"http://fir.im/beta100001\">
 		<div class=\"node_footer_bar\">		
          <img src=\"../images/bottom.png\" />
          <div class=\"open_button\" >购票</div>
