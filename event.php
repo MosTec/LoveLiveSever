@@ -63,8 +63,8 @@ echo "<div class=\"descriptionArea\">
                <span id=\"Js_abstract\" class=\"content_header_text\">
                   $eventDescripiton
                </span>
-               <img class=\"content_header_text_l\" src=\"http://school.5lovelive.com/static/wap/img/sign_left_black@3x.png\" />
-               <img class=\"content_header_text_r\" src=\"http://school.5lovelive.com/static/wap/img/sign_right_black@3x.png\" />
+               <img class=\"content_header_text_l\" src=\"../images/icon_yinhaoLeft@3x.png\" />
+               <img class=\"content_header_text_r\" src=\"../images/icon_yinhaoRight@3x.png\" />
             </div>
       </div>";
 
@@ -146,7 +146,7 @@ for ($i=0; $i < count($hotEvents); $i++) {
 
 // bottomLink
 
-echo "<a href=\"http://fir.im/beta100001\">
+echo "<a href=\"https://appsto.re/cn/9my5db.i\">
 		<div class=\"node_footer_bar\">		
          <img src=\"../images/bottom.png\" />
          <div class=\"open_button\" >购票</div>

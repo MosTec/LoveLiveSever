@@ -156,7 +156,7 @@ for ($i=0; $i < count($hotEvents); $i++) {
 
 // bottomLink
 
-echo "<a href=\"http://fir.im/beta100001\">
+echo "<a href=\"https://appsto.re/cn/9my5db.i\">
 		<div class=\"node_footer_bar\">		
          <img src=\"../images/bottom.png\" />
          <div class=\"open_button\" >打开</div>
