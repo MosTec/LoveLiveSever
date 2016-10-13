@@ -82,6 +82,53 @@ if ($event['type'] == 'charge.succeeded') {
 
     echo $res;
 
+    ////// send message //////
+
+    $url1 = "https://api.leancloud.cn/1.1/classes/order/".$orderId."?include=creator,event,topic";
+
+    $avosId1 = "m3pwKv6vfV9BqdId6oV9Jd2d-gzGzoHsz";
+    $avosKey1 = "vKMRTFHtdIFckoiE6PxiMYEp";
+    $avosMaster1 = "cpwHOPgah8BeYR0T2BIOVHXh,master";
+    //请求头内容
+    $headers1 = array(
+        'X-LC-Id: '.$avosId1,
+        'X-LC-Key: '.$avosKey1,
+    );
+
+    //使用curl发送s
+    $ch1 = curl_init($url1);
+    curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch1, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch1, CURLOPT_HTTPHEADER, $headers1);
+    $result1 = curl_exec($ch1);
+    $output_arr1 = json_decode($result1,true);
+    curl_close($ch1);
+
+    $phoneNumber = $output_arr1['contactPhone'];
+
+    /////////////////// 发送短信 /////////////////
+    $urlsend="http://112.124.24.5/api/MsgSend.asmx/SendMsg";
+
+    $token=array("userCode"=>"AXCYX","userPass"=>"629004","DesNo"=>$phoneNumber,"Msg"=>"短信内容【签名】","Channel"=>"78106");
+
+    echo http($urlsend,$token,"GET"); //get请求
+
+    echo http($urlsend,$token,"POST"); //post请求
+
+    function http($url,$param,$action="GET"){
+        $ch=curl_init();
+        $config=array(CURLOPT_RETURNTRANSFER=>true,CURLOPT_URL=>$url);  
+        if($action=="POST"){
+            $config[CURLOPT_POST]=true;     
+        }
+        $config[CURLOPT_POSTFIELDS]=http_build_query($param);
+        curl_setopt_array($ch,$config); 
+        $result=curl_exec($ch); 
+        curl_close($ch);
+        return $result;
+    }
+
     http_response_code(200); // PHP 5.4 or greater
 } elseif ($event['type'] == 'refund.succeeded') {
     $refund = $event['data']['object'];
