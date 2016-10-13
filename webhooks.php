@@ -84,7 +84,7 @@ if ($event['type'] == 'charge.succeeded') {
 
     ////// send message //////
 
-    $url1 = "https://api.leancloud.cn/1.1/classes/order/".$orderId."?include=creator,event,topic";
+    $url1 = "https://api.leancloud.cn/1.1/classes/order/".$orderId."?include=linkEvent,linkTicket,linkStage";
 
     $avosId1 = "m3pwKv6vfV9BqdId6oV9Jd2d-gzGzoHsz";
     $avosKey1 = "vKMRTFHtdIFckoiE6PxiMYEp";
@@ -105,16 +105,21 @@ if ($event['type'] == 'charge.succeeded') {
     $output_arr1 = json_decode($result1,true);
     curl_close($ch1);
 
+echo $result1;
+
     $phoneNumber = $output_arr1['contactPhone'];
+    $eventTitle = $output_arr1['linkEvent']['eventTitle'];
+    $eventLocation = $output_arr1['linkEvent']['eventLocation'];
+    $ticketName = $output_arr1['linkTicket']['ticketName'];
+    $stageName = $output_arr1['linkStage']['stageTitle'];
+    $count = $output_arr1['count'];
 
     /////////////////// 发送短信 /////////////////
-    $urlsend="http://112.124.24.5/api/MsgSend.asmx/SendMsg";
+    $urlsend="http://120.55.197.77:1210/Services/MsgSend.asmx/SendMsg";
 
-    $token=array("userCode"=>"AXCYX","userPass"=>"629004","DesNo"=>$phoneNumber,"Msg"=>"短信内容【签名】","Channel"=>"78106");
+    $msg = "亲爱的爱现场用户，您成功购买".$eventTitle."活动".$stageName."场".$count."张".$ticketName."，请准时前往".$eventLocation."参与活动。详细信息请下载爱现场APP。【爱现场】";
 
-    echo http($urlsend,$token,"GET"); //get请求
-
-    echo http($urlsend,$token,"POST"); //post请求
+    $token=array("userCode"=>"axc","userPass"=>"axc123","DesNo"=>$phoneNumber,"Msg"=>$msg,"Channel"=>"0");
 
     function http($url,$param,$action="GET"){
         $ch=curl_init();
@@ -128,6 +133,9 @@ if ($event['type'] == 'charge.succeeded') {
         curl_close($ch);
         return $result;
     }
+    echo http($urlsend,$token,"GET"); //get请求
+
+
 
     http_response_code(200); // PHP 5.4 or greater
 } elseif ($event['type'] == 'refund.succeeded') {
